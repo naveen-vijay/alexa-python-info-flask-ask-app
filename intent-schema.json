@@ -1,0 +1,62 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "python info",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetPythonHistory",
+                    "slots": [],
+                    "samples": [
+                        "History of Python",
+                        "Get me python's history ",
+                        "What is Python's history"
+                    ]
+                },
+                {
+                    "name": "GetPEPInfo",
+                    "slots": [
+                        {
+                            "name": "index",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "{index}",
+                        "Tell me about PEP  {index} ",
+                        "Tell me about PEP",
+                        "{index}  PEP",
+                        "PEP  {index} ",
+                        "What is the PEP for  {index} ",
+                        "What is the P E P ",
+                        "I would like to lookup on the PEP "
+                    ]
+                },
+                {
+                    "name": "GetPythonReleaseInfo",
+                    "slots": [],
+                    "samples": [
+                        "upcoming release",
+                        "release next",
+                        "next release",
+                        "python release ",
+                        "next python release",
+                        "When is the next python releasing "
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
