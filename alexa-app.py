@@ -14,31 +14,33 @@ def index():
 
 @ask.launch
 def launch():
-    return statement(render_template('welcome'))
+    return question(render_template('welcome')).reprompt(render_template('welcome_reprompt')).simple_card('Python Info - Launch', render_template('welcome'))
 
 
 @ask.intent('GetPythonHistory')
 def get_python_history():
-    return statement(render_template('history'))
+    return statement(render_template('history')).simple_card('Get Python History', render_template('history'))
 
 
 @ask.intent('GetPythonReleaseInfo')
 def get_python_release():
-    return statement(render_template('next_python_release'))
+    return statement(render_template('next_python_release')).simple_card('Get Python Release Info', render_template('history'))
 
 
 @ask.intent('GetPEPInfo', mapping={'index': 'index'})
 def get_pep_info(index):
     if not index:
-        return question('What is PEP index number ?')
+        question_text = 'What is PEP index number ?'
+        return question(question_text).simple_card('Get PEP Info', question_text)
     pep_text = PEP_INDEX.get(index, 'invalid')
-    return statement(f'PEP {index} is {pep_text}')
+    pep_info = f'PEP {index} is {pep_text}'
+    return statement(pep_info).simple_card(f'Get PEP Info - PEP {index}', pep_info)
 
 
 @ask.intent('AMAZON.HelpIntent')
 def cancel():
     print('AMAZON.HelpIntent')
-    return statement(render_template('welcome'))
+    return statement(render_template('welcome')).simple_card('Python Info - Launch', render_template('welcome'))
 
 
 @ask.intent('AMAZON.StopIntent')
